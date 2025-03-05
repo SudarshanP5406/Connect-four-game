@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body, button, p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background container (blurred) */
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(4px);
+}
+
+/* Centered app container */
+#app > div {
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* Title styling */
+#start-screen h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Change Background button on title page */
+#change-background {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Vertical Difficulty Buttons */
+.difficulty {
+  display: block;
+  width: 200px;
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.difficulty.easy {
+  background-color: green;
+  color: white;
+}
+.difficulty.medium {
+  background-color: yellow;
+  color: black;
+}
+.difficulty.hard {
+  background-color: red;
+  color: white;
+}
+
+/* Rules styling */
+#rules-title {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  /* Change the color of the "Rules" heading here */
+  color: #fff;
+}
+#rules-text {
+  font-size: 1rem;
+  margin: 10px 20px;
+  /* Change the text color of the rules here */
+  color: #fff;
+}
+
+/* Game Layout Styles */
+#game-layout {
+  width: 100%;
+}
+
+#message {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Board styles */
+#board {
+  display: grid;
+  grid-template-columns: repeat(7, 60px);
+  grid-template-rows: repeat(6, 60px);
+  gap: 5px;
+  background-color: #1c76d2;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0 auto 20px;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Highlight winning pieces with an outline */
+.cell.win {
+  outline: 3px solid cyan;
+}
+
+/* Buttons on game layout */
+#restart, #exit {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Icon in the bottom right */
+#icon {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+#icon img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Shake animations */
+@keyframes shake-easy {
+  0% { transform: translate(0); }
+  25% { transform: translate(-5px); }
+  50% { transform: translate(5px); }
+  75% { transform: translate(-5px); }
+  100% { transform: translate(0); }
+}
+@keyframes shake-medium {
+  0% { transform: translate(0); }
+  25% { transform: translate(-10px); }
+  50% { transform: translate(10px); }
+  75% { transform: translate(-10px); }
+  100% { transform: translate(0); }
+}
+@keyframes shake-hard {
+  0% { transform: translate(0); }
+  25% { transform: translate(-15px); }
+  50% { transform: translate(15px); }
+  75% { transform: translate(-15px); }
+  100% { transform: translate(0); }
+}
+.shake-easy {
+  animation: shake-easy 0.5s;
+}
+.shake-medium {
+  animation: shake-medium 0.7s;
+}
+.shake-hard {
+  animation: shake-hard 0.9s;
+}
